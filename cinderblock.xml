@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="OculusRift glNext"
+	id=""
+	author="William Lindmeier"
+	summary="Fork of Rene Christen fork of simongeilfus OculusRift block"
+	license=""
+	git="https://github.com/wdlindmeier/OculusVR-Cinder-GLNext"
+	version="0.1"
+	library="https://github.com/simongeilfus/Cinder-OculusRift"
+	>
+	<supports os="macosx" />
+	<supports os="msw" />
+	
+	<headerPattern>src/*.h</headerPattern>
+	<sourcePattern>src/*.cpp</sourcePattern>
+	
+	<headerPattern>LibOVR/Include/*.h</headerPattern>
+	
+	<includePath system="true">LibOVR/Include</includePath>
+	<includePath system="true">LibOVR/Src</includePath>
+	<includePath system="true">LibOVR/Src/Kernel</includePath>
+	<includePath system="true">LibOVR/Src/Util</includePath>
+	<includePath system="true">src</includePath>
+	
+	<platform os="macosx">
+		<staticLibrary>LibOVR/Lib/MacOS/Debug/libovr.a</staticLibrary>
+		<staticLibrary>LibOVR/Lib/MacOS/Release/libovr.a</staticLibrary>
+		<libraryPath>LibOVR/Lib/MacOS/$(CONFIGURATION)</libraryPath>
+		<framework sdk="true">IOKit.framework</framework>
+		<framework sdk="true">IOSurface.framework</framework>
+	</platform>
+	
+	<platform os="msw">
+		<platform config="Debug">
+			<staticLibrary>LibOVR/Lib/Win32/libovrd.lib</staticLibrary>
+		</platform>
+		<platform config="Release">
+			<staticLibrary>LibOVR/Lib/Win32/libovr.lib</staticLibrary>
+		</platform>
+		<staticLibrary absolute="true">Winmm.lib</staticLibrary>
+	</platform>
+
+<copyExclude>samples</copyExclude>
+	
+</block>
+</cinder>
