@@ -43,7 +43,6 @@ void oculusBaseApp::prepareSettings( Settings* settings )
     settings->disableFrameRate();
     // We need a fullscreen window for the Oculus
     settings->setFullScreen();
-    //settings->setWindowSize(1600, 1000);
  }
 
 void oculusBaseApp::setup()
@@ -51,8 +50,7 @@ void oculusBaseApp::setup()
     mOculusVR = ovr::Device::create();
     mDistortionHelper = ovr::DistortionHelper::create( false );
     
-    mFont = gl::TextureFont::create(Font("DINAlternate-Bold", 72));
-    //mFont = gl::TextureFont::create(Font("Helvetica-Bold", 72));
+    mFont = gl::TextureFont::create(Font("Helvetica-Bold", 72));
     
     //set up Oculus screen video
     gl::Fbo::Format format;

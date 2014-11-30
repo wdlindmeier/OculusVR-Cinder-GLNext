@@ -10,22 +10,26 @@
 	<string>oculusBaseApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>706C4EA29DEBBB45FD42F0EEF83D2F028D8F9E63</key>
+		<string>github.com:wdlindmeier/OculusVR-Cinder-GLNext.git</string>
 		<key>AD4B458D0D225ED63FAE0155615993B7D3ECE020</key>
 		<string>https://github.com/cinder/Cinder.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>blocks/OculusRift/samples/oculusBaseApp glNext/xcode/oculusBaseApp.xcodeproj</string>
+	<string>samples/oculusBaseApp glNext/xcode/oculusBaseApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>706C4EA29DEBBB45FD42F0EEF83D2F028D8F9E63</key>
+		<string>../../../../..</string>
 		<key>AD4B458D0D225ED63FAE0155615993B7D3ECE020</key>
 		<string>../../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/cinder/Cinder.git</string>
+	<string>github.com:wdlindmeier/OculusVR-Cinder-GLNext.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AD4B458D0D225ED63FAE0155615993B7D3ECE020</string>
+	<string>706C4EA29DEBBB45FD42F0EEF83D2F028D8F9E63</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>AD4B458D0D225ED63FAE0155615993B7D3ECE020</string>
 			<key>IDESourceControlWCCName</key>
-			<string>cinder_glnext</string>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>706C4EA29DEBBB45FD42F0EEF83D2F028D8F9E63</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OculusRift</string>
 		</dict>
 	</array>
 </dict>

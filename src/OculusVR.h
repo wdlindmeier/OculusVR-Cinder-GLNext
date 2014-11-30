@@ -3,7 +3,7 @@
 //  OculusSDKTest
 //
 //  Created by Simon Geilfus on 29/05/13.
-//
+//  Ported to glNext by William Lindmeier 29/11/14.
 //
 
 #pragma once

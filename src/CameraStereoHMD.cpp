@@ -10,12 +10,12 @@
 
 using namespace ci;
 
-
 CameraStereoHMD::CameraStereoHMD()
 : ci::CameraStereo()
 , mProjectionCenterOffset( 0.151976f )
 {
-    setEyeSeparation( 0.64f );//0.00119808f );
+    setEyeSeparation( 0.64f );
+    //setEyeSeparation( 0.00119808f );
     setConvergence(0);
     setFov( 125.871f );
 }
@@ -24,7 +24,8 @@ CameraStereoHMD::CameraStereoHMD( int pixelWidth, int pixelHeight, float fov )
 : CameraStereo( pixelWidth, pixelHeight, fov )
 , mProjectionCenterOffset( 0.151976f )
 {
-    setEyeSeparation( 0.64f );//0.00119808f );
+    setEyeSeparation( 0.64f );
+    //setEyeSeparation( 0.00119808f );
     setConvergence(0);
 }
 
@@ -32,10 +33,10 @@ CameraStereoHMD::CameraStereoHMD( int pixelWidth, int pixelHeight, float fov, fl
 : CameraStereo( pixelWidth, pixelHeight, fov, nearPlane, farPlane )
 , mProjectionCenterOffset( 0.151976f )
 {
-    setEyeSeparation( 0.64f );//0.00119808f );
+    setEyeSeparation( 0.64f );
+    //setEyeSeparation( 0.00119808f );
     setConvergence(0);
 }
-
 
 const mat4& CameraStereoHMD::getProjectionMatrixLeft() const
 {
@@ -44,6 +45,7 @@ const mat4& CameraStereoHMD::getProjectionMatrixLeft() const
     
     return mProjectionMatrixLeft;
 }
+
 const mat4& CameraStereoHMD::getModelViewMatrixLeft() const
 {
 	if( ! mModelViewCached )
@@ -51,6 +53,7 @@ const mat4& CameraStereoHMD::getModelViewMatrixLeft() const
     
     return mViewMatrixLeft;
 }
+
 const mat4& CameraStereoHMD::getInverseModelViewMatrixLeft() const
 {
 	if( ! mInverseModelViewCached )
@@ -59,7 +62,6 @@ const mat4& CameraStereoHMD::getInverseModelViewMatrixLeft() const
     return mInverseModelViewMatrixLeft;
 }
 
-
 const mat4& CameraStereoHMD::getProjectionMatrixRight() const
 {
 	if( ! mProjectionCached )
@@ -67,6 +69,7 @@ const mat4& CameraStereoHMD::getProjectionMatrixRight() const
     
     return mProjectionMatrixRight;
 }
+
 const mat4& CameraStereoHMD::getModelViewMatrixRight() const
 {
 	if( ! mModelViewCached )
@@ -74,6 +77,7 @@ const mat4& CameraStereoHMD::getModelViewMatrixRight() const
     
     return mViewMatrixRight;
 }
+
 const mat4& CameraStereoHMD::getInverseModelViewMatrixRight() const
 {
 	if( ! mInverseModelViewCached )
@@ -82,31 +86,23 @@ const mat4& CameraStereoHMD::getInverseModelViewMatrixRight() const
     return mInverseModelViewMatrixRight;
 }
 
-
 void CameraStereoHMD::calcViewMatrix() const
 {
 	// calculate default matrix first
 	CameraPersp::calcViewMatrix();
     
-    mViewMatrixLeft = glm::translate( mat4(), vec3( getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
-    mViewMatrixRight = glm::translate( mat4(), vec3( -getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
-//	mViewMatrixLeft = mat4::createTranslation( vec3( getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
-//	mViewMatrixRight = mat4::createTranslation( vec3( -getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
+    mViewMatrixLeft = glm::translate( mat4(1), vec3( getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
+    mViewMatrixRight = glm::translate( mat4(1), vec3( -getEyeSeparation(), 0, 0 ) ) * mViewMatrix;
 }
+
 void CameraStereoHMD::calcProjection() const
 {
 	// calculate default matrices first
 	CameraPersp::calcProjection();
 	
-    mProjectionMatrixLeft = glm::translate( mat4(), vec3( mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
+    mProjectionMatrixLeft = glm::translate( mat4(1), vec3( mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
     mInverseProjectionMatrixLeft = glm::affineInverse( mProjectionMatrixLeft );
-    
-//	mProjectionMatrixLeft = Matrix44f::createTranslation( Vec3f( mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
-//	mInverseProjectionMatrixLeft = mProjectionMatrixLeft.affineInverted();
-	
-    mProjectionMatrixRight = glm::translate( mat4(), vec3( -mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
-    mInverseProjectionMatrixRight = glm::affineInverse( mProjectionMatrixRight );
 
-//	mProjectionMatrixRight = Matrix44f::createTranslation( Vec3f( -mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
-//	mInverseProjectionMatrixRight = mProjectionMatrixRight.affineInverted();
+    mProjectionMatrixRight = glm::translate( mat4(1), vec3( -mProjectionCenterOffset, 0, 0 ) ) * mProjectionMatrix;
+    mInverseProjectionMatrixRight = glm::affineInverse( mProjectionMatrixRight );
 }
