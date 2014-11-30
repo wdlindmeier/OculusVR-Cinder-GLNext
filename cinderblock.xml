@@ -4,7 +4,7 @@
 	name="OculusRift glNext"
 	id=""
 	author="William Lindmeier"
-	summary="Fork of Rene Christen fork of simongeilfus OculusRift block"
+	summary="Port of simongeilfus OculusRift block for DK1"
 	license=""
 	git="https://github.com/wdlindmeier/OculusVR-Cinder-GLNext"
 	version="0.1"
